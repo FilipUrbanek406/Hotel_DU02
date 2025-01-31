@@ -8,6 +8,12 @@ public class Guest {
         private String lastName;
         private LocalDate dateOfBirth;
 
+    public Guest(String firstName, String lastName, LocalDate dateOfBirth) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+    }
+
     public String getFirstName() {
         return firstName;
     }

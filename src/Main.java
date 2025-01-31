@@ -1,5 +1,5 @@
-import com.engeto.Guest;
-import com.engeto.Room;
+import com.engeto.hotel.Guest;
+import com.engeto.hotel.Room;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

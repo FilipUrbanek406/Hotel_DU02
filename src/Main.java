@@ -13,6 +13,7 @@ public class Main {
         guest1.setLastName("Malíková");
         guest1.setDateOfBirth(LocalDate.of(1993, 3,13));
 
+
         guest2.setFirstName("Jan");
         guest2.setLastName("Dvořáček");
         guest2.setDateOfBirth(LocalDate.of(1995, 5,5));

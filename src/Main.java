@@ -1,9 +1,12 @@
+import com.engeto.hotel.Booking;
 import com.engeto.hotel.Guest;
 import com.engeto.hotel.Room;
 
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,8 +28,30 @@ public class Main {
         Room room3 = new Room(3, 103, false, true, new BigDecimal(2400));
 
         // Vtvoření objektu rezervace
-//        Booking booking1 = new Booking(guest1, room1, "Rekreační", LocalDate.of(2021, 7, 1),
-//                LocalDate.of(2021, 7, 14), null);
+        Booking booking1 = new Booking(guest1, room1, "Rekreační", LocalDate.of(2021, 7, 1),
+                LocalDate.of(2021, 7, 14), null);
+        Booking booking2 = new Booking(guest2, room3, "Pracovní", LocalDate.of(2021, 9, 1),
+                LocalDate.of(2021, 9, 14), guest1);
+
+        Composition(room1, room3);
+
+        guestList(guest1, guest2);
+
+
+    }
+
+    private static void Composition(Room room1, Room room3) {
+
+    }
+
+    private static void guestList(Guest guest1, Guest guest2) {
+        List<Guest> guestsList = new ArrayList<>();
+
+        guestsList.add(guest1);
+        guestsList.add(guest2);
+        guestsList.addAll(List.of(guest1, guest2));
+
+
     }
 }
 

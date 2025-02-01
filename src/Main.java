@@ -27,30 +27,29 @@ public class Main {
         Room room2 = new Room(1, 102, true, true, new BigDecimal(1000));
         Room room3 = new Room(3, 103, false, true, new BigDecimal(2400));
 
-        // Pokus o vytvoření objektu rezervace pomocí nově vytvořené třídy Booking - zatím nefunkční
+        // Vytvoření objektů rezervací
+        Booking booking1 = new Booking(guest1, room1, "rekreační", LocalDate.of(2021, 7, 19), LocalDate.of(2021, 7, 26));
+        Booking booking2 = new Booking(guest2, room2, "pracovní", LocalDate.of(2021, 9, 1), LocalDate.of(2021, 9, 14));
+        booking2.addOtherGuest(guest1);
 
-//        Booking booking1 = new Booking(guest1, room1, "Rekreační", LocalDate.of(2021, 7, 1),
-//                LocalDate.of(2021, 7, 14), null);
-//        Booking booking2 = new Booking(guest2, room3, "Pracovní", LocalDate.of(2021, 9, 1),
-//                LocalDate.of(2021, 9, 14), guest1);
+        // Vytvoření seznamu rezervací
+        List<Booking> bookings = new ArrayList<>();
+        bookings.add(booking1);
+        bookings.add(booking2);
 
-        Composition(room1, room3);
-
-        guestList(guest1, guest2);
-
-
-    }
-
-    private static void Composition(Room room1, Room room3) {
-    }
-
-    private static void guestList(Guest guest1, Guest guest2) {
-        List<Guest> guestsList = new ArrayList<>();
-
-        guestsList.add(guest1);
-        guestsList.add(guest2);
-        guestsList.addAll(List.of(guest1, guest2));
-
+        // Výpis informací o rezervacích
+        System.out.println("Výpis všech rezervací:");
+        for (Booking booking : bookings) {
+            System.out.println("Rezervace pro: " + booking.getGuest().getFirstName() + " " + booking.getGuest().getLastName()
+                    + ", pokoj č. " + booking.getRoom().getRoomNumber() + ", typ: " + booking.getTypeOfVacation()
+                    + ", od: " + booking.getStartDate() + " do: " + booking.getEndDate());
+            if (booking.getOtherGuests().size() > 0) {
+                System.out.println("Další hosté: ");
+                for (Guest otherGuest : booking.getOtherGuests()) {
+                    System.out.println(otherGuest.getFirstName() + " " + otherGuest.getLastName());
+                }
+            }
+        }
 
     }
 }

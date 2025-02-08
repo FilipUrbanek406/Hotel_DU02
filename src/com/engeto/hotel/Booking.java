@@ -8,15 +8,15 @@ public class Booking {
 
     private Guest guest;
     private Room room;
-    private String typeOfVacation;
+    private boolean isWorkingStay;
     private LocalDate startDate;
     private LocalDate endDate;
     private List<Guest> otherGuests = new ArrayList<>();
 
-    public Booking(Guest guest, Room room, String typeOfVacation, LocalDate startDate, LocalDate endDate) {
+    public Booking(Guest guest, Room room, boolean isWorkingStay, LocalDate startDate, LocalDate endDate) {
         this.guest = guest;
         this.room = room;
-        this.typeOfVacation = typeOfVacation;
+        this.isWorkingStay = isWorkingStay;
         this.startDate = startDate;
         this.endDate = endDate;
     }
@@ -37,12 +37,12 @@ public class Booking {
         this.room = room;
     }
 
-    public String getTypeOfVacation() {
-        return typeOfVacation;
+    public boolean isWorkingStay() {
+        return isWorkingStay;
     }
 
-    public void setTypeOfVacation(String typeOfVacation) {
-        this.typeOfVacation = typeOfVacation;
+    public void setWorkingStay(boolean workingStay) {
+        this.isWorkingStay = workingStay;
     }
 
     public LocalDate getStartDate() {
@@ -71,6 +71,10 @@ public class Booking {
 
     public void addOtherGuest(Guest guest) {
         otherGuests.add(guest);
+    }
+
+    public int getGuestsCount() {
+        return otherGuests.size() + 1;
     }
 }
 

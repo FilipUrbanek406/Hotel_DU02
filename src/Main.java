@@ -28,8 +28,8 @@ public class Main {
         Room room3 = new Room(3, 103, false, true, new BigDecimal(2400));
 
         // Vytvoření objektů rezervací
-        Booking booking1 = new Booking(guest1, room1, "rekreační", LocalDate.of(2021, 7, 19), LocalDate.of(2021, 7, 26));
-        Booking booking2 = new Booking(guest2, room2, "pracovní", LocalDate.of(2021, 9, 1), LocalDate.of(2021, 9, 14));
+        Booking booking1 = new Booking(guest1, room1, false, LocalDate.of(2021, 7, 19), LocalDate.of(2021, 7, 26));
+        Booking booking2 = new Booking(guest2, room2, true, LocalDate.of(2021, 9, 1), LocalDate.of(2021, 9, 14));
         booking2.addOtherGuest(guest1);
 
         // Vytvoření seznamu rezervací
@@ -41,7 +41,7 @@ public class Main {
         System.out.println("Výpis všech rezervací:");
         for (Booking booking : bookings) {
             System.out.println("Rezervace pro: " + booking.getGuest().getFirstName() + " " + booking.getGuest().getLastName()
-                    + ", pokoj č. " + booking.getRoom().getRoomNumber() + ", typ: " + booking.getTypeOfVacation()
+                    + ", pokoj č. " + booking.getRoom().getRoomNumber() + ", typ: " + (booking.isWorkingStay() ? "pracovní" : "rekreační")
                     + ", od: " + booking.getStartDate() + " do: " + booking.getEndDate());
             if (booking.getOtherGuests().size() > 0) {
                 System.out.println("Další hosté: ");

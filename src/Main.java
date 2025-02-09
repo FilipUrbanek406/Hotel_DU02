@@ -52,7 +52,7 @@ public class Main {
         }
     }
 
-    //následující metoda je zde pro domácí úkol 3 zbytečná, vznikla ze zadání domacího úkolu 2
+    //následující metoda je zde pro domácí úkol 3 zbytečná, vznikla ze zadání domacího úkolu dva
     public static void mainHotelDU2(String[] args) {
 
         // Vytvoření objektů hostů

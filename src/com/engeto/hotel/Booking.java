@@ -89,8 +89,8 @@ public class Booking {
 
     public String getFormattedSummary() {
         Guest guest = getGuest();
-        return getStartDate() + " až " + getEndDate() + ": " + guest.getFirstName() + guest.getLastName() + " (" + guest.getDateOfBirth() + ")[" + getGuestsCount() +
-                ", " + (room.isSeaView() ? "ano" : "ne") + " za " + getTotalPrice() + " Kč]";
+        return getStartDate() + " až " + getEndDate() + ": " + guest.getFirstName() + guest.getLastName() + " (" + guest.getDateOfBirth() + ")[počet hostů: " + getGuestsCount() +
+                ", " + (room.isSeaView() ? "s výhledem na moře" : "bez výhledu na moře") + "] za " + getTotalPrice() + " Kč";
     }
 }
 

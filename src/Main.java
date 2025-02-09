@@ -22,7 +22,7 @@ public class Main {
         Guest karolina = new Guest("Karolína", "Tmavá", LocalDate.of(1990, 10, 10));
 
         Room room1 = new Room(2, 101, true, true, new BigDecimal(1000));
-        Room room2 = new Room(2, 102, true, true, new BigDecimal(1000));
+        Room room2 = new Room(2, 102, true, false, new BigDecimal(1000));
         Room room3 = new Room(3, 103, false, true, new BigDecimal(2400));
 
         bookingManager.addBooking(new Booking(karel1, room3, true, LocalDate.of(2023, 6, 1), LocalDate.of(2023, 6, 7)));

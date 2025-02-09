@@ -52,6 +52,7 @@ public class Main {
         }
     }
 
+    //následující metoda je zde pro DU3 zbytečná, vznikla ze zadání DU2
     public static void mainHotelDU2(String[] args) {
 
         // Vytvoření objektů hostů

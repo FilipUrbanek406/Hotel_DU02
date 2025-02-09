@@ -1,6 +1,8 @@
 package com.engeto.hotel;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,6 +77,20 @@ public class Booking {
 
     public int getGuestsCount() {
         return otherGuests.size() + 1;
+    }
+
+    public long getBookingLength() {
+        return ChronoUnit.DAYS.between(startDate, endDate);
+    }
+
+    public BigDecimal getTotalPrice() {
+        return room.getPricePerNight().multiply(BigDecimal.valueOf(getBookingLength()));
+    }
+
+    public String getFormattedSummary() {
+        Guest guest = getGuest();
+        return getStartDate() + " až " + getEndDate() + ": " + guest.getFirstName() + guest.getLastName() + " (" + guest.getDateOfBirth() + ")[" + getGuestsCount() +
+                ", " + (room.isSeaView() ? "ano" : "ne") + " za " + getTotalPrice() + " Kč]";
     }
 }
 
